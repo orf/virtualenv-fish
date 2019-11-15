@@ -9,6 +9,6 @@ function tmpenv -d "Create a temporary virtual environment"
    set DEFAULT_PACKAGES $XDG_CONFIG_HOME/virtualenv-fish/global_requirements.txt
    if test -e "$DEFAULT_PACKAGES"
        python -m pip install -r $DEFAULT_PACKAGES --quiet
-       echo "Installed" (wc -l $DEFAULT_PACKAGES) "packages"
+       echo "Installed" (string trim -- (wc -l < $DEFAULT_PACKAGES)) "packages"
    end
 end
