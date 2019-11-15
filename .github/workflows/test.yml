@@ -9,6 +9,16 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Install fish
-        shell: bash
         run: |
           brew install fish
+      - name: Install fisher
+        run: |
+          curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+      - name: Install package
+        shell: fish
+        run: |
+          fisher add orf/virtualenv-fish@${{ github.sha }}
+      - name: Test
+        shell: fish
+        run: |
+          tmpenv
