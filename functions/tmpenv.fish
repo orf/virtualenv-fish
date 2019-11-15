@@ -10,5 +10,6 @@ function tmpenv -d "Create a temporary virtual environment"
    echo $DEFAULT_PACKAGES
    if test -e "$DEFAULT_PACKAGES"
        python -m pip install -r $DEFAULT_PACKAGES --quiet
+       echo "Installed" (wc -l $DEFAULT_PACKAGES) "packages"
    end
 end
