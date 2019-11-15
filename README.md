@@ -14,9 +14,9 @@ This package can be installed with fisher, fundle or oh-my-fish:
 
 ## Usage
 
-### Temporary virtual environment: `tempenv`
+### Temporary virtual environment: `tmpenv`
 
-Running `tempenv` will create a temporary virtual environment for you to experiment with.
+Running `tmpenv` will create a temporary virtual environment for you to experiment with.
 
 You can add custom package that will always be installed by creating a file in 
 `~/.config/virtualenv-fish/global_requirements.txt`. e.g:
