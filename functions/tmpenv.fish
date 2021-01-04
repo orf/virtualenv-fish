@@ -1,6 +1,11 @@
-function tmpenv -d "Create a temporary virtual environment"
+function tmpenv -d "Create a temporary virtual environment" -a python
    set env_dir (mktemp -d)
-   python3 -m venv --prompt "temp" $env_dir
+   if test -n "$python"
+      set pypath (pyenv prefix (pyenv latest -p $python))
+      $pypath/bin/python -m venv --prompt "temp" $env_dir
+   else
+      python3 -m venv --prompt "temp" $env_dir
+   end
    source $env_dir/bin/activate.fish
    echo "Created virtualenv with version" (python --version)
    echo "Installing dependencies..."
